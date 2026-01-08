@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import ComplaintCard from '../components/ComplaintCard';
 
-const API_URL = 'http://localhost:5000/api/complaints';
+const API_URL = import.meta.env.API_BASE;
 
 const Feed = () => {
     const [complaints, setComplaints] = useState([]);
