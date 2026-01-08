@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import ComplaintCard from '../components/ComplaintCard';
 
-const API_URL = process.env.VITE_API_BASE;
+const API_URL = import.meta.env.VITE_API_BASE;
 
 const Feed = () => {
     const [complaints, setComplaints] = useState([]);
