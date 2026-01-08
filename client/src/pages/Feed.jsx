@@ -13,7 +13,14 @@ const Feed = () => {
     const fetchComplaints = async () => {
         try {
             const res = await axios.get(API_URL);
-            setComplaints(res.data);
+            if (Array.isArray(res.data)) {
+              setComplaints(res.data);
+            } else if (Array.isArray(res.data.complaints)) {
+              setComplaints(res.data.complaints);
+            } else {
+              setComplaints([]);
+            }
+
         } catch (err) {
             console.error(err);
             setError('Failed to load feed. Is the backend running?');
